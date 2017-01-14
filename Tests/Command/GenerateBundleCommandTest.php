@@ -29,6 +29,7 @@ class GenerateBundleCommandTest extends GenerateCommandTest
         // not shared? the tests should be at the root of the project
         if (!$shared) {
             $bundle->setTestsDirectory($container->getParameter('kernel.root_dir').'/../tests/'.$bundleName);
+            $bundle->setTestsNamespace('Tests\\'.$namespace);
         }
 
         $generator = $this->getGenerator();
@@ -87,6 +88,7 @@ class GenerateBundleCommandTest extends GenerateCommandTest
         // not shared? the tests should be at the root of the project
         if (!$shared) {
             $bundle->setTestsDirectory($container->getParameter('kernel.root_dir').'/../tests/'.$bundleName);
+            $bundle->setTestsNamespace('Tests\\'.$namespace);
         }
 
         $generator = $this->getGenerator();

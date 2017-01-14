@@ -404,8 +404,10 @@ EOT
 
         // not shared - put the tests in the root
         if (!$shared) {
-            $testsDir = $projectRootDirectory.'/tests/'.$bundleName;
+            $testsDir = $projectRootDirectory.'/tests/'.strtr($namespace, '\\', DIRECTORY_SEPARATOR);
+            $testsNamespace = 'Tests\\'.$namespace;
             $bundle->setTestsDirectory($testsDir);
+            $bundle->setTestsNamespace($testsNamespace);
         }
 
         return $bundle;

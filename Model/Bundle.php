@@ -21,6 +21,8 @@ class Bundle
 
     private $testsDirectory;
 
+    private $testsNamespace;
+
     public function __construct($namespace, $name, $targetDirectory, $configurationFormat, $isShared)
     {
         $this->namespace = $namespace;
@@ -29,6 +31,7 @@ class Bundle
         $this->configurationFormat = $configurationFormat;
         $this->isShared = $isShared;
         $this->testsDirectory = $this->getTargetDirectory().'/Tests';
+        $this->testsNamespace = $namespace.'\\Tests';
     }
 
     public function getNamespace()
@@ -139,5 +142,17 @@ class Bundle
     public function getTestsDirectory()
     {
         return $this->testsDirectory;
+    }
+
+    public function setTestsNamespace($testsNamespace)
+    {
+        $this->testsNamespace = $testsNamespace;
+
+        return $this;
+    }
+
+    public function getTestsNamespace()
+    {
+        return $this->testsNamespace;
     }
 }
